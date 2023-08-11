@@ -22,7 +22,16 @@ jobs:
         go-version: '1.20'
 
     - name: Build
-      run: go build -v ./...
+      run: go build -o disk-icon-clean.exe -ldflags="-H windowsgui -w -s" main.go 
 
-    - name: Test
-      run: go test -v ./...
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+       name: gscheck-artifact
+       path: ${{ github.workspace }}/disk-icon-clean
+
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.1
+      with:
+       name: disk-icon-clean
