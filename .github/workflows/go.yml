@@ -28,8 +28,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-       name: gscheck-artifact
-       path: ${{ github.workspace }}/disk-icon-clean
+       name: disk-icon-clean
+       path: ${{ github.workspace }}/disk-icon-clean.exe
 
     - name: Download a Build Artifact
       uses: actions/download-artifact@v2.1.1
